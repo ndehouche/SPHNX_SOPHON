@@ -1,0 +1,17 @@
+{
+  "name": "sphnx",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@matterlabs/hardhat-zksync": "^1.3.0",
+    "hardhat": "^2.22.18",
+    "hardhat-deploy": "^0.14.0"
+  }
+}
