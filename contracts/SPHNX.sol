@@ -1,9 +1,8 @@
 // File: @openzeppelin/contracts/utils/Context.sol
 
-
 // OpenZeppelin Contracts (last updated v5.0.1) (utils/Context.sol)
 
-pragma solidity  ^0.8.26;
+pragma solidity ^0.8.26;
 
 /**
  * @dev Provides information about the current execution context, including the
@@ -31,11 +30,9 @@ abstract contract Context {
 
 // File: @openzeppelin/contracts/security/Pausable.sol
 
-
 // OpenZeppelin Contracts (last updated v4.7.0) (security/Pausable.sol)
 
 pragma solidity ^0.8.0;
-
 
 /**
  * @dev Contract module which allows children to implement an emergency stop
@@ -138,11 +135,9 @@ abstract contract Pausable is Context {
 
 // File: @openzeppelin/contracts/access/Ownable.sol
 
-
 // OpenZeppelin Contracts (last updated v5.0.0) (access/Ownable.sol)
 
 pragma solidity ^0.8.20;
-
 
 /**
  * @dev Contract module which provides a basic access control mechanism, where
@@ -240,26 +235,23 @@ abstract contract Ownable is Context {
 
 // File: SPHNX.sol
 
-
 pragma solidity ^0.8.13;
-
-
 
 contract SPHNX is Ownable, Pausable {
     // State variables
     uint256 public messagePrice;
     uint256 public messagesProcessed;
     address public winner;
-    
+
     // Constants for withdrawal splits
     uint256 private constant WINNER_SHARE = 70;
     uint256 private constant OWNER_SHARE = 30;
-    
+
     // Mapping to track user's paid messages
     mapping(address => uint256) public userMessages;
     // Mapping to track if a transaction hash has been used
     mapping(bytes32 => bool) public usedTransactionHashes;
-    
+
     // Events
     event MessagePaid(address indexed user, uint256 amount, uint256 timestamp);
     event PriceUpdated(uint256 newPrice);
@@ -267,7 +259,7 @@ contract SPHNX is Ownable, Pausable {
     event WinnerSet(address indexed winner);
     event WinnerWithdrawal(address indexed winner, uint256 amount);
     event OwnerWithdrawal(address indexed owner, uint256 amount);
-    
+
     // Custom errors
     error InsufficientPayment();
     error TransactionAlreadyUsed();
@@ -275,7 +267,7 @@ contract SPHNX is Ownable, Pausable {
     error WithdrawalFailed();
     error NoWinnerSet();
     error InvalidAmount();
-    
+
     constructor(uint256 _initialPrice) Ownable(msg.sender) {
         messagePrice = _initialPrice;
     }
@@ -289,7 +281,7 @@ contract SPHNX is Ownable, Pausable {
         winner = _winner;
         emit WinnerSet(_winner);
     }
-    
+
     /**
      * @dev Pay for a message
      */
@@ -298,26 +290,26 @@ contract SPHNX is Ownable, Pausable {
         if (msg.value < messagePrice) {
             revert InsufficientPayment();
         }
-        
+
         // Generate unique hash for this transaction
         bytes32 txHash = keccak256(abi.encodePacked(msg.sender, block.timestamp, msg.value));
-        
+
         // Check if transaction hash has been used
         if (usedTransactionHashes[txHash]) {
             revert TransactionAlreadyUsed();
         }
-        
+
         // Mark transaction as used
         usedTransactionHashes[txHash] = true;
-        
+
         // Increment user's message count
         userMessages[msg.sender]++;
         messagesProcessed++;
-        
+
         // Emit event
         emit MessagePaid(msg.sender, msg.value, block.timestamp);
     }
-    
+
     /**
      * @dev Update the price per message
      * @param newPrice The new price in wei
@@ -326,7 +318,7 @@ contract SPHNX is Ownable, Pausable {
         messagePrice = newPrice;
         emit PriceUpdated(newPrice);
     }
-    
+
     /**
      * @dev Get the number of messages a user has paid for
      * @param user The address to check
@@ -334,7 +326,7 @@ contract SPHNX is Ownable, Pausable {
     function getMessageCount(address user) external view returns (uint256) {
         return userMessages[user];
     }
-    
+
     /**
      * @dev Check if a specific transaction hash has been used
      * @param txHash The hash to check
@@ -349,7 +341,7 @@ contract SPHNX is Ownable, Pausable {
     function withdraw() external {
         uint256 contractBalance = address(this).balance;
         if (contractBalance == 0) revert InvalidAmount();
-        
+
         uint256 amount;
         if (msg.sender == winner) {
             if (winner == address(0)) revert NoWinnerSet();
@@ -369,14 +361,14 @@ contract SPHNX is Ownable, Pausable {
      * @dev Internal function to process withdrawals
      */
     function _processWithdrawal(address payable to, uint256 amount) private {
-        (bool success, ) = to.call{value: amount}("");
+        (bool success,) = to.call{value: amount}("");
         if (!success) {
             revert WithdrawalFailed();
         }
-        
+
         emit FundsWithdrawn(to, amount);
     }
-    
+
     /**
      * @dev Get contract balance
      */
@@ -397,7 +389,7 @@ contract SPHNX is Ownable, Pausable {
     function unpause() external onlyOwner {
         _unpause();
     }
-    
+
     // Allow contract to receive ETH
     receive() external payable {}
 }

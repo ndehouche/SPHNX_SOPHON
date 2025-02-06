@@ -1,9 +1,7 @@
 import type { HardhatUserConfig } from "hardhat/config";
 
 import "@matterlabs/hardhat-zksync";
-import * as dotenv from 'dotenv';
-WALLET_PRIVATE_KEY=your_private_key_here
-ETHERSCAN_SOPHON_API_KEY=your_sophscan_api_key_here  
+import * as dotenv from "dotenv";
 // Load environment variables from .env file
 dotenv.config();
 
@@ -20,7 +18,7 @@ const config: HardhatUserConfig = {
       browserVerifyURL: "https://explorer.sophon.xyz/",
       enableVerifyURL: true,
       zksync: true,
-      accounts: [process.env.WALLET_PRIVATE_KEY as string]
+      accounts: [process.env.WALLET_PRIVATE_KEY as string],
     },
     sophonTestnet: {
       url: "https://rpc.testnet.sophon.xyz",
@@ -29,16 +27,23 @@ const config: HardhatUserConfig = {
       browserVerifyURL: "https://explorer.testnet.sophon.xyz/",
       enableVerifyURL: true,
       zksync: true,
-      accounts: [process.env.WALLET_PRIVATE_KEY as string]
+      accounts: [process.env.WALLET_PRIVATE_KEY as string],
     },
   },
   zksolc: {
-    version: "latest",
+    version: "1.5.10",
     settings: {
+      optimizer: {
+        enabled: true,
+        mode: "3",
+      },
     },
   },
   solidity: {
-    version: "0.8.27",
+    version: "0.8.26",
+    settings: {
+      evmVersion: "paris",
+    },
   },
   etherscan: {
     enabled: true,
@@ -64,7 +69,7 @@ const config: HardhatUserConfig = {
         },
       },
     ],
-  }
+  },
 };
 
 export default config;

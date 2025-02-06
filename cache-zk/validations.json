@@ -1,0 +1,566 @@
+{
+  "version": "3.4",
+  "log": [
+    {
+      "contracts/SPHNX.sol:Context": {
+        "src": "contracts/SPHNX.sol:17",
+        "inherit": [],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false,
+          "namespaces": {}
+        },
+        "solcVersion": "0.8.26"
+      },
+      "contracts/SPHNX.sol:Ownable": {
+        "src": "contracts/SPHNX.sol:154",
+        "inherit": [
+          "contracts/SPHNX.sol:Context"
+        ],
+        "libraries": [],
+        "methods": [
+          "owner()",
+          "renounceOwnership()",
+          "transferOwnership(address)"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "constructor",
+            "contract": "Ownable",
+            "src": "contracts/SPHNX.sol:172"
+          }
+        ],
+        "layout": {
+          "storage": [
+            {
+              "contract": "Ownable",
+              "label": "_owner",
+              "type": "t_address",
+              "src": "contracts/SPHNX.sol:155"
+            }
+          ],
+          "types": {
+            "t_address": {
+              "label": "address"
+            }
+          },
+          "layoutVersion": "1.2",
+          "flat": false,
+          "namespaces": {}
+        },
+        "solcVersion": "0.8.26"
+      },
+      "contracts/SPHNX.sol:Pausable": {
+        "src": "contracts/SPHNX.sol:46",
+        "inherit": [
+          "contracts/SPHNX.sol:Context"
+        ],
+        "libraries": [],
+        "methods": [
+          "paused()"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "constructor",
+            "contract": "Pausable",
+            "src": "contracts/SPHNX.sol:62"
+          }
+        ],
+        "layout": {
+          "storage": [
+            {
+              "contract": "Pausable",
+              "label": "_paused",
+              "type": "t_bool",
+              "src": "contracts/SPHNX.sol:57"
+            }
+          ],
+          "types": {
+            "t_bool": {
+              "label": "bool"
+            }
+          },
+          "layoutVersion": "1.2",
+          "flat": false,
+          "namespaces": {}
+        },
+        "solcVersion": "0.8.26"
+      },
+      "contracts/SPHNX.sol:SPHNX": {
+        "src": "contracts/SPHNX.sol:240",
+        "version": {
+          "withMetadata": "b3df8ad3513e2c7bf59038c74c13f01491c23c71b854154b0d5aaec59e936d73",
+          "withoutMetadata": "b3df8ad3513e2c7bf59038c74c13f01491c23c71b854154b0d5aaec59e936d73",
+          "linkedWithoutMetadata": "b3df8ad3513e2c7bf59038c74c13f01491c23c71b854154b0d5aaec59e936d73"
+        },
+        "inherit": [
+          "contracts/SPHNX.sol:Pausable",
+          "contracts/SPHNX.sol:Ownable",
+          "contracts/SPHNX.sol:Context"
+        ],
+        "libraries": [],
+        "methods": [
+          "(uint256)",
+          "setWinner(address)",
+          "payForMessage()",
+          "updatePrice(uint256)",
+          "getMessageCount(address)",
+          "isTransactionUsed(bytes32)",
+          "withdraw()",
+          "getBalance()",
+          "pause()",
+          "unpause()",
+          "()"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "constructor",
+            "contract": "SPHNX",
+            "src": "contracts/SPHNX.sol:271"
+          }
+        ],
+        "layout": {
+          "storage": [
+            {
+              "contract": "SPHNX",
+              "label": "messagePrice",
+              "type": "t_uint256",
+              "src": "contracts/SPHNX.sol:242"
+            },
+            {
+              "contract": "SPHNX",
+              "label": "messagesProcessed",
+              "type": "t_uint256",
+              "src": "contracts/SPHNX.sol:243"
+            },
+            {
+              "contract": "SPHNX",
+              "label": "winner",
+              "type": "t_address",
+              "src": "contracts/SPHNX.sol:244"
+            },
+            {
+              "contract": "SPHNX",
+              "label": "userMessages",
+              "type": "t_mapping(t_address,t_uint256)",
+              "src": "contracts/SPHNX.sol:251"
+            },
+            {
+              "contract": "SPHNX",
+              "label": "usedTransactionHashes",
+              "type": "t_mapping(t_bytes32,t_bool)",
+              "src": "contracts/SPHNX.sol:253"
+            }
+          ],
+          "types": {
+            "t_uint256": {
+              "label": "uint256"
+            },
+            "t_address": {
+              "label": "address"
+            },
+            "t_mapping(t_address,t_uint256)": {
+              "label": "mapping(address => uint256)"
+            },
+            "t_mapping(t_bytes32,t_bool)": {
+              "label": "mapping(bytes32 => bool)"
+            },
+            "t_bytes32": {
+              "label": "bytes32"
+            },
+            "t_bool": {
+              "label": "bool"
+            }
+          },
+          "layoutVersion": "1.2",
+          "flat": false,
+          "namespaces": {}
+        },
+        "solcVersion": "0.8.26"
+      }
+    },
+    {
+      "contracts/SPHNX.sol:Context": {
+        "src": "contracts/SPHNX.sol:18",
+        "inherit": [],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false,
+          "namespaces": {}
+        },
+        "solcVersion": "0.8.26"
+      },
+      "contracts/SPHNX.sol:Ownable": {
+        "src": "contracts/SPHNX.sol:159",
+        "inherit": [
+          "contracts/SPHNX.sol:Context"
+        ],
+        "libraries": [],
+        "methods": [
+          "owner()",
+          "renounceOwnership()",
+          "transferOwnership(address)"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "constructor",
+            "contract": "Ownable",
+            "src": "contracts/SPHNX.sol:177"
+          }
+        ],
+        "layout": {
+          "storage": [
+            {
+              "contract": "Ownable",
+              "label": "_owner",
+              "type": "t_address",
+              "src": "contracts/SPHNX.sol:160"
+            }
+          ],
+          "types": {
+            "t_address": {
+              "label": "address"
+            }
+          },
+          "layoutVersion": "1.2",
+          "flat": false,
+          "namespaces": {}
+        },
+        "solcVersion": "0.8.26"
+      },
+      "contracts/SPHNX.sol:Pausable": {
+        "src": "contracts/SPHNX.sol:49",
+        "inherit": [
+          "contracts/SPHNX.sol:Context"
+        ],
+        "libraries": [],
+        "methods": [
+          "paused()"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "constructor",
+            "contract": "Pausable",
+            "src": "contracts/SPHNX.sol:65"
+          }
+        ],
+        "layout": {
+          "storage": [
+            {
+              "contract": "Pausable",
+              "label": "_paused",
+              "type": "t_bool",
+              "src": "contracts/SPHNX.sol:60"
+            }
+          ],
+          "types": {
+            "t_bool": {
+              "label": "bool"
+            }
+          },
+          "layoutVersion": "1.2",
+          "flat": false,
+          "namespaces": {}
+        },
+        "solcVersion": "0.8.26"
+      },
+      "contracts/SPHNX.sol:SPHNX": {
+        "src": "contracts/SPHNX.sol:248",
+        "version": {
+          "withMetadata": "7b45eacc6cb04366789a56f39cc70d3d82eebbd592ab6a1a450b45666519b8a4",
+          "withoutMetadata": "7b45eacc6cb04366789a56f39cc70d3d82eebbd592ab6a1a450b45666519b8a4",
+          "linkedWithoutMetadata": "7b45eacc6cb04366789a56f39cc70d3d82eebbd592ab6a1a450b45666519b8a4"
+        },
+        "inherit": [
+          "contracts/SPHNX.sol:Pausable",
+          "contracts/SPHNX.sol:Ownable",
+          "contracts/SPHNX.sol:Context"
+        ],
+        "libraries": [],
+        "methods": [
+          "(uint256)",
+          "setWinner(address)",
+          "payForMessage()",
+          "updatePrice(uint256)",
+          "getMessageCount(address)",
+          "isTransactionUsed(bytes32)",
+          "withdraw()",
+          "getBalance()",
+          "pause()",
+          "unpause()",
+          "()"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "constructor",
+            "contract": "SPHNX",
+            "src": "contracts/SPHNX.sol:279"
+          }
+        ],
+        "layout": {
+          "storage": [
+            {
+              "contract": "SPHNX",
+              "label": "messagePrice",
+              "type": "t_uint256",
+              "src": "contracts/SPHNX.sol:250"
+            },
+            {
+              "contract": "SPHNX",
+              "label": "messagesProcessed",
+              "type": "t_uint256",
+              "src": "contracts/SPHNX.sol:251"
+            },
+            {
+              "contract": "SPHNX",
+              "label": "winner",
+              "type": "t_address",
+              "src": "contracts/SPHNX.sol:252"
+            },
+            {
+              "contract": "SPHNX",
+              "label": "userMessages",
+              "type": "t_mapping(t_address,t_uint256)",
+              "src": "contracts/SPHNX.sol:259"
+            },
+            {
+              "contract": "SPHNX",
+              "label": "usedTransactionHashes",
+              "type": "t_mapping(t_bytes32,t_bool)",
+              "src": "contracts/SPHNX.sol:261"
+            }
+          ],
+          "types": {
+            "t_uint256": {
+              "label": "uint256"
+            },
+            "t_address": {
+              "label": "address"
+            },
+            "t_mapping(t_address,t_uint256)": {
+              "label": "mapping(address => uint256)"
+            },
+            "t_mapping(t_bytes32,t_bool)": {
+              "label": "mapping(bytes32 => bool)"
+            },
+            "t_bytes32": {
+              "label": "bytes32"
+            },
+            "t_bool": {
+              "label": "bool"
+            }
+          },
+          "layoutVersion": "1.2",
+          "flat": false,
+          "namespaces": {}
+        },
+        "solcVersion": "0.8.26"
+      }
+    },
+    {
+      "contracts/SPHNX.sol:Context": {
+        "src": "contracts/SPHNX.sol:18",
+        "inherit": [],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false,
+          "namespaces": {}
+        },
+        "solcVersion": "0.8.27"
+      },
+      "contracts/SPHNX.sol:Ownable": {
+        "src": "contracts/SPHNX.sol:159",
+        "inherit": [
+          "contracts/SPHNX.sol:Context"
+        ],
+        "libraries": [],
+        "methods": [
+          "owner()",
+          "renounceOwnership()",
+          "transferOwnership(address)"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "constructor",
+            "contract": "Ownable",
+            "src": "contracts/SPHNX.sol:177"
+          }
+        ],
+        "layout": {
+          "storage": [
+            {
+              "contract": "Ownable",
+              "label": "_owner",
+              "type": "t_address",
+              "src": "contracts/SPHNX.sol:160"
+            }
+          ],
+          "types": {
+            "t_address": {
+              "label": "address"
+            }
+          },
+          "layoutVersion": "1.2",
+          "flat": false,
+          "namespaces": {}
+        },
+        "solcVersion": "0.8.27"
+      },
+      "contracts/SPHNX.sol:Pausable": {
+        "src": "contracts/SPHNX.sol:49",
+        "inherit": [
+          "contracts/SPHNX.sol:Context"
+        ],
+        "libraries": [],
+        "methods": [
+          "paused()"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "constructor",
+            "contract": "Pausable",
+            "src": "contracts/SPHNX.sol:65"
+          }
+        ],
+        "layout": {
+          "storage": [
+            {
+              "contract": "Pausable",
+              "label": "_paused",
+              "type": "t_bool",
+              "src": "contracts/SPHNX.sol:60"
+            }
+          ],
+          "types": {
+            "t_bool": {
+              "label": "bool"
+            }
+          },
+          "layoutVersion": "1.2",
+          "flat": false,
+          "namespaces": {}
+        },
+        "solcVersion": "0.8.27"
+      },
+      "contracts/SPHNX.sol:SPHNX": {
+        "src": "contracts/SPHNX.sol:248",
+        "version": {
+          "withMetadata": "a732b1fc2404c80b07226d31f02d862dbe1678c1f700a24cb64aa6576830772e",
+          "withoutMetadata": "a732b1fc2404c80b07226d31f02d862dbe1678c1f700a24cb64aa6576830772e",
+          "linkedWithoutMetadata": "a732b1fc2404c80b07226d31f02d862dbe1678c1f700a24cb64aa6576830772e"
+        },
+        "inherit": [
+          "contracts/SPHNX.sol:Pausable",
+          "contracts/SPHNX.sol:Ownable",
+          "contracts/SPHNX.sol:Context"
+        ],
+        "libraries": [],
+        "methods": [
+          "(uint256)",
+          "setWinner(address)",
+          "payForMessage()",
+          "updatePrice(uint256)",
+          "getMessageCount(address)",
+          "isTransactionUsed(bytes32)",
+          "withdraw()",
+          "getBalance()",
+          "pause()",
+          "unpause()",
+          "()"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "constructor",
+            "contract": "SPHNX",
+            "src": "contracts/SPHNX.sol:279"
+          }
+        ],
+        "layout": {
+          "storage": [
+            {
+              "contract": "SPHNX",
+              "label": "messagePrice",
+              "type": "t_uint256",
+              "src": "contracts/SPHNX.sol:250"
+            },
+            {
+              "contract": "SPHNX",
+              "label": "messagesProcessed",
+              "type": "t_uint256",
+              "src": "contracts/SPHNX.sol:251"
+            },
+            {
+              "contract": "SPHNX",
+              "label": "winner",
+              "type": "t_address",
+              "src": "contracts/SPHNX.sol:252"
+            },
+            {
+              "contract": "SPHNX",
+              "label": "userMessages",
+              "type": "t_mapping(t_address,t_uint256)",
+              "src": "contracts/SPHNX.sol:259"
+            },
+            {
+              "contract": "SPHNX",
+              "label": "usedTransactionHashes",
+              "type": "t_mapping(t_bytes32,t_bool)",
+              "src": "contracts/SPHNX.sol:261"
+            }
+          ],
+          "types": {
+            "t_uint256": {
+              "label": "uint256"
+            },
+            "t_address": {
+              "label": "address"
+            },
+            "t_mapping(t_address,t_uint256)": {
+              "label": "mapping(address => uint256)"
+            },
+            "t_mapping(t_bytes32,t_bool)": {
+              "label": "mapping(bytes32 => bool)"
+            },
+            "t_bytes32": {
+              "label": "bytes32"
+            },
+            "t_bool": {
+              "label": "bool"
+            }
+          },
+          "layoutVersion": "1.2",
+          "flat": false,
+          "namespaces": {}
+        },
+        "solcVersion": "0.8.27"
+      }
+    }
+  ]
+}
